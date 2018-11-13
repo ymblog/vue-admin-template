@@ -13,8 +13,8 @@ Vue.use(util);
 Vue.use(ElementUI);
 new Vue({
 	el: '#app',
-	store,
-	router,//使用vuex 不使用请删除掉
+	store,//使用vuex 不使用请删除掉
+	router,
 	components: { App },
 	template: '<App/>'
 })

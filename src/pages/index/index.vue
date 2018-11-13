@@ -1,21 +1,33 @@
 <template>
-	<div class="page-index lt-block">
-		<nav-bar></nav-bar>
-		<div class="lt-main">
-			<breadcrumb></breadcrumb>
-		</div>
+	<div class="lt-content page-index">
+		<h2>欢迎进入后台管理系统</h2>
+		<p>用户名：{{name}}</p>
+		<p>角色：{{role}}</p>
 	</div>
 </template>
 <script>
-	import navBar from '@/components/navBar';
-	import breadcrumb from '@/components/breadcrumb';
+	import {mapState} from 'vuex';
 	export default{
-		components:{
-			navBar,
-			breadcrumb
-		}
+		name:'index',
+	  	computed:{
+			...mapState(['name','role'])
+		},
 	}
 </script>
 <style lang="less" scope>
-@import './index.less';
+.lt-content.page-index{
+	height:90vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	h2{
+		margin-bottom:30px;
+		font-size:28px;
+	}
+	p{
+		font-size:16px;
+		line-height:2;
+	}
+}
 </style>

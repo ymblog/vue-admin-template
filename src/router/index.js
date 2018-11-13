@@ -5,54 +5,96 @@ import common from '@/assets/js/common';
 import store from '@/store/index.js';//使用vuex 不使用请删除掉
 //组件统一懒加载引入
 const index = r => require.ensure([], () => r(require('@/pages/index/index')), 'index');
+const layout = r => require.ensure([], () => r(require('@/components/layout')), 'layout');
 const form = r => require.ensure([], () => r(require('@/pages/form/form')), 'form');
 const login = r => require.ensure([], () => r(require('@/pages/login/login')), 'login');
 const table = r => require.ensure([], () => r(require('@/pages/table/table')), 'table');
+const richtext = r => require.ensure([], () => r(require('@/pages/richtext/richtext')), 'richtext');
+const error = r => require.ensure([], () => r(require('@/pages/error/error')), 'error');
 Vue.use(Util);
 Vue.use(Router);
-/* 需要验证登录的加上
-meta:{
-    requiresAuth:true
-}
-*/
+const whiteList = ['/login','/error'] // 不需要登录的白名单
 const router = new Router({
     routes: [
         {
             path: '/',
-            name: 'index',
-            component: index,
-            meta:{
-                requiresAuth:true
-            }
+            component: layout,
+            redirect: '/index',
+            children: [{
+                path:'index',
+                name: 'index',
+                component: index,
+                meta:{
+                    title:'首页',
+                    nav:'1'
+                },
+            }]
         },
         {
-            path: '/form',
-            name: 'form',
-            component: form,
-            meta:{
-                title:'表单',
-                requiresAuth:true
-            }
-        },
-        {
-            path: '/table',
-            name: 'table',
-            component: table,
-            meta:{
-                title:'表格',
-                requiresAuth:true
-            }
+            path: '/error',
+            name: 'error',
+            component: error
         },
         {
             path: '/login',
             name: 'login',
             component: login
-        }
+        },
+        {
+            path: '/layout',
+            name: 'layout',
+            redirect:'/layout/form',
+            component: layout,
+            meta:{
+                title:'布局'
+            },
+            children: [
+                {
+                    path: 'form',
+                    name: 'form',
+                    component: form,
+                    meta:{
+                        title:'表单',
+                        nav:'2-1'
+                    }
+                },
+                {
+                    path: 'table',
+                    name: 'table',
+                    component: table,
+                    meta:{
+                        title:'表格',
+                        nav:'2-2'
+                    }
+                }
+            ]
+        },
+        {
+            path: '/other',
+            name: 'other',
+            redirect:'/other/richtext',
+            component: layout,
+            meta:{
+                title:'其他'
+            },
+            children: [
+                {
+                    path: 'richtext',
+                    name: 'richtext',
+                    component: richtext,
+                    meta:{
+                        title:'富文本',
+                        nav:'3-1'
+                    }
+                }
+            ]
+        },
+        { path: '*', redirect: '/error', hidden: true }
     ]
 });
 //登录验证 包括存储用户信息 不使用请删除掉
 router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (whiteList.indexOf(to.path) == -1) {
         if (common.cookie.get('token')) {
             if(store.state.token){
                 next();

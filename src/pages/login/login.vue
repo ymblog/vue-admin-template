@@ -8,12 +8,12 @@
 			<el-form-item label="密码" prop="password">
 				<el-input type="password" v-model="loginForm.password" placeholder="请输入密码"></el-input>
 			</el-form-item>
+			<p class="login-tip">账号:admin 密码:admin</p>
 			<el-button class="submit" type="primary" @click="onSubmit()" :loading="loading">立即登录</el-button>
 		</el-form>
 	</div>
 </template>
 <script>
-	import { isvalidUsername } from '@/assets/js/validate';
 	export default{
 		name: 'login',
 		data(){
@@ -44,7 +44,7 @@
 						this.loading = true;
 						this.$store.dispatch('login',this.loginForm).then(() => {
 				            this.loading = false;
-				           	this.$router.push('/');
+				           	this.$router.push(this.$route.query.redirect || '/');
 				        }).catch(() => {
 				            this.loading = false;
 				        });
