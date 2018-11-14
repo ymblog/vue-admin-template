@@ -23,5 +23,8 @@
 + 弹窗封装
 + 权限设置
 
+## 传送门
+(项目)[https://ymblog.github.io/vue-admin-template/dist/]
+
 ## 感谢
 喜欢的同学可以顺手给个star支持一下，谢谢！！
