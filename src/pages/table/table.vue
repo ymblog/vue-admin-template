@@ -39,6 +39,17 @@
 			<el-form-item label="活动形式">
 				<el-input type="textarea" v-model="form.desc"></el-input>
 			</el-form-item>
+			<el-form-item label="图片上传">
+				<el-upload
+				  class="avatar-uploader"
+				  action="https://jsonplaceholder.typicode.com/posts/"
+				  :show-file-list="false"
+				  :on-success="handleAvatarSuccess"
+				  :before-upload="beforeAvatarUpload">
+				  <img v-if="imageUrl" :src="imageUrl" class="avatar">
+				  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+				</el-upload>
+			</el-form-item>
 			<el-form-item>
 				<el-button type="primary" @click="onSubmit">立即创建</el-button>
 				<el-button>取消</el-button>
@@ -65,13 +76,47 @@
 					type: [],
 					resource: '',
 					desc: ''
-				}
+				},
+				imageUrl:''
 			}
 	    },
 	    methods: {
 			onSubmit() {
 				console.log('submit!');
+			},
+			beforeAvatarUpload(file){
+				//限制图片类型和大小
+				console.log(file);
+			},
+			//图片上传完成事件
+			handleAvatarSuccess(file){
+				
 			}
 	    }
 	}
 </script>
+<style lang="less" scope>
+	.avatar-uploader .el-upload {
+		border: 1px dashed #d9d9d9;
+		border-radius: 6px;
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+	}
+	.avatar-uploader .el-upload:hover {
+		border-color: #409EFF;
+	}
+	.avatar-uploader-icon {
+		font-size: 28px;
+		color: #8c939d;
+		width: 178px;
+		height: 178px;
+		line-height: 178px;
+		text-align: center;
+	}
+	.avatar {
+		width: 178px;
+		height: 178px;
+		display: block;
+	}
+</style>

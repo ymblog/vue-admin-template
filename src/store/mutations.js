@@ -11,6 +11,9 @@ const mutations = {
 	},
 	SET_TOKEN:(state,token)=>{
 		state.token = token;
+	},
+	SET_NAVLIST:(state,navlist)=>{
+		state.navList = navlist;
 	}
 }
 export default mutations;

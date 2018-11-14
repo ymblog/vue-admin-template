@@ -7,7 +7,8 @@ Vue.use(Vuex);
 const state = {
 	token:'',//token值
 	role:'',//用户角色
-	name:''//用户名称
+	name:'',//用户名称
+	navList:''//导航权限
 };
 export default new Vuex.Store({
 	state,

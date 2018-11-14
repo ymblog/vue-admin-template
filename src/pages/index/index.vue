@@ -11,12 +11,12 @@
 		name:'index',
 	  	computed:{
 			...mapState(['name','role'])
-		},
+		}
 	}
 </script>
 <style lang="less" scope>
 .lt-content.page-index{
-	height:90vh;
+	height:86vh;
 	display:flex;
 	justify-content:center;
 	align-items:center;
