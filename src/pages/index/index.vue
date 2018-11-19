@@ -2,7 +2,6 @@
 	<div class="lt-content page-index">
 		<h2>欢迎进入后台管理系统</h2>
 		<p>用户名：{{name}}</p>
-		<p>角色：{{role}}</p>
 	</div>
 </template>
 <script>
@@ -10,7 +9,7 @@
 	export default{
 		name:'index',
 	  	computed:{
-			...mapState(['name','role'])
+			...mapState(['name'])
 		}
 	}
 </script>

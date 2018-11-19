@@ -100,8 +100,6 @@ router.beforeEach((to, from, next) => {
                 next();
             }else{
                 store.commit('SET_NAME',common.cookie.get('name'));
-                store.commit('SET_TOKEN',common.cookie.get('token'));
-                store.commit('SET_ROLE',common.cookie.get('role'));
                 store.commit('SET_NAVLIST',JSON.parse(common.cookie.get('navList')));
                 next();
             }    

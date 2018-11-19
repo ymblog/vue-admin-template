@@ -20,11 +20,9 @@ const actions = {
                 let data = response.data;
                 common.cookie.set('token',data.token);
                 common.cookie.set('name',data.name);
-                common.cookie.set('role',data.role);
                 common.cookie.set('navList',JSON.stringify(data.navList));
                 commit('SET_TOKEN', data.token);
                 commit('SET_NAME', data.name);
-                commit('SET_ROLE', data.role);
                 commit('SET_NAVLIST', data.navList);
                 resolve();
             }).catch(error => {

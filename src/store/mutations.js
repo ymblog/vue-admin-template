@@ -3,9 +3,6 @@
  * @author lk 2018-11-08
  */
 const mutations = {
-	SET_ROLE:(state,role)=>{
-		state.role = role;
-	},
 	SET_NAME:(state,name)=>{
 		state.name = name;
 	},
