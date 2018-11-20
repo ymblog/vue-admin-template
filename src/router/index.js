@@ -9,8 +9,10 @@ const layout = r => require.ensure([], () => r(require('@/components/layout')), 
 const form = r => require.ensure([], () => r(require('@/pages/form/form')), 'form');
 const login = r => require.ensure([], () => r(require('@/pages/login/login')), 'login');
 const table = r => require.ensure([], () => r(require('@/pages/table/table')), 'table');
-const richtext = r => require.ensure([], () => r(require('@/pages/richtext/richtext')), 'richtext');
+const plugin = r => require.ensure([], () => r(require('@/pages/plugin/plugin')), 'plugin');
 const error = r => require.ensure([], () => r(require('@/pages/error/error')), 'error');
+const accountList = r => require.ensure([], () => r(require('@/pages/setting/account/list')), 'accountList');
+const accountEdit = r => require.ensure([], () => r(require('@/pages/setting/account/edit/edit')), 'accountEdit');
 Vue.use(Util);
 Vue.use(Router);
 const whiteList = ['/login','/error'] // 不需要登录的白名单
@@ -41,6 +43,46 @@ const router = new Router({
             component: login
         },
         {
+            path: '/setting',
+            name: 'setting',
+            redirect:'/setting/account',
+            component: layout,
+            meta:{
+                title:'系统管理'
+            },
+            children: [
+                {
+                    path: 'account',
+                    name: 'accountList',
+                    component: accountList,
+                    meta:{
+                        title:'子账号管理',
+                        nav:'2-1'
+                    },
+                    children: [
+                        {
+                            path: 'add',
+                            name: 'accountAdd',
+                            component: accountEdit,
+                            meta:{
+                                title:'新增子账号',
+                                nav:'2-1-1'
+                            }
+                        },
+                        {
+                            path: 'edit/:id',
+                            name: 'accountEdit',
+                            component: accountEdit,
+                            meta:{
+                                title:'编辑子账号',
+                                nav:'2-1-1'
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             path: '/layout',
             name: 'layout',
             redirect:'/layout/form',
@@ -55,7 +97,7 @@ const router = new Router({
                     component: form,
                     meta:{
                         title:'表单',
-                        nav:'2-1'
+                        nav:'3-1'
                     }
                 },
                 {
@@ -64,7 +106,7 @@ const router = new Router({
                     component: table,
                     meta:{
                         title:'表格',
-                        nav:'2-2'
+                        nav:'3-2'
                     }
                 }
             ]
@@ -72,19 +114,19 @@ const router = new Router({
         {
             path: '/other',
             name: 'other',
-            redirect:'/other/richtext',
+            redirect:'/other/plugin',
             component: layout,
             meta:{
                 title:'其他'
             },
             children: [
                 {
-                    path: 'richtext',
-                    name: 'richtext',
-                    component: richtext,
+                    path: 'plugin',
+                    name: 'plugin',
+                    component: plugin,
                     meta:{
-                        title:'富文本',
-                        nav:'3-1'
+                        title:'插件',
+                        nav:'4-1'
                     }
                 }
             ]
