@@ -54,6 +54,13 @@
 		}
 	}
 </script>
-<style lang="less" scope>
+<style lang="less">
+.page-login{
+	label{
+		color:#fff;
+	}
+}
+</style>
+<style lang="less" scoped>
 @import './login.less';
 </style>

@@ -23,11 +23,11 @@
 				</div>
 			</el-form>
 		</div>
-		<btns @submit="formSubmit"></btns>
+		<btns @submit="formSubmit"/>
 	</div>
 </template>
 <script>
-	import btns from '@/components/btns';
+	import btns from '@/components/FormBtns';
 	export default{
 		data(){
 			return{
@@ -60,7 +60,7 @@
 			btns
 		},
 		methods:{
-			async formSubmit(){
+			formSubmit(){
 				this.$refs.form.validate(valid => {
 					if(valid){
 						this.$message({

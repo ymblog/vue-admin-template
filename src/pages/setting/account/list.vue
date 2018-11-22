@@ -1,7 +1,7 @@
 <template>
 	<div class="lt-content">
 		<div class="add-btn-box">
-			<router-link :to="{name:'accountAdd'}">
+			<router-link :to="{name:'companyAdd'}">
 				<el-button type="primary">新增</el-button>
 			</router-link>
 		</div>
@@ -59,7 +59,7 @@
 		}
 	}
 </script>
-<style lang="less" scope>
+<style lang="less" scoped>
 	.add-btn-box{
 		text-align:right;
 		margin-bottom:20px;

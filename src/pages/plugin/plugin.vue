@@ -33,7 +33,7 @@
 	    }
 	}
 </script>
-<style lang="less" scope>
+<style lang="less" scoped>
 .page-plugin{
 	width:800px;
 	p{

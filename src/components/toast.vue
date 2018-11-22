@@ -3,7 +3,7 @@
 		<div v-show="isShowToast" class="lt-toast" id="toast-box"><p>{{content}}</p></div>
 	</transition>
 </template>
-<style lang="less" scope>
+<style lang="less" scoped>
 .lt-toast{
     position: fixed;
     top:50%;

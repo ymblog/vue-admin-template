@@ -1,8 +1,8 @@
 <template>
 	<div class="lt-block">
-		<nav-bar></nav-bar>
+		<nav-bar />
 		<div class="lt-main">
-			<breadcrumb></breadcrumb>
+			<breadcrumb />
 			<transition name="fade" mode="out-in">
 			  	<router-view></router-view>
 			</transition>

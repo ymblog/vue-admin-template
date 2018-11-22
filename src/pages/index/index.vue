@@ -13,7 +13,7 @@
 		}
 	}
 </script>
-<style lang="less" scope>
+<style lang="less" scoped>
 .lt-content.page-index{
 	height:86vh;
 	display:flex;
