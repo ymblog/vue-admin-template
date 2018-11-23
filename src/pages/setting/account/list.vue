@@ -1,7 +1,7 @@
 <template>
 	<div class="lt-content">
 		<div class="add-btn-box">
-			<router-link :to="{name:'companyAdd'}">
+			<router-link :to="{name:'accountAdd'}">
 				<el-button type="primary">新增</el-button>
 			</router-link>
 		</div>

@@ -27,7 +27,7 @@
 	</div>
 </template>
 <script>
-	import btns from '@/components/FormBtns';
+	import btns from '@/components/form-btns';
 	export default{
 		data(){
 			return{

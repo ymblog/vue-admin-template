@@ -13,12 +13,12 @@
 					<span>首页</span>
 				</router-link>
 			</el-menu-item>
-			<el-submenu :index="nav.index" v-for="nav in list">
+			<el-submenu :index="nav.index" v-for="nav in list" :key="nav.index">
 				<template slot="title">
 					<i :class="nav.icon"></i>
 					<span>{{nav.title}}</span>
 				</template>
-				<router-link :to="{name:navItem.name}" v-for="navItem in nav.children">
+				<router-link :to="{name:navItem.name}" v-for="navItem in nav.children" :key="navItem.name">
 					<el-menu-item :index="navItem.index">{{navItem.title}}</el-menu-item>
 				</router-link>
 			</el-submenu>

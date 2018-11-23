@@ -1,7 +1,7 @@
 <template>
 	<div class="lt-breadcrumb-box">
 		<el-breadcrumb class="lt-breadcrumb" separator="/">
-			<el-breadcrumb-item v-for="(item,index) in breadList" :to="item.path">
+			<el-breadcrumb-item v-for="(item,index) in breadList" :to="item.path" :key="index">
 				<span v-if="index==breadList.length-1" class="no-redirect">{{ item.meta.title }}</span>
 	       	 	<router-link v-else :to="item.path">{{ item.meta.title }}</router-link>
 			</el-breadcrumb-item>

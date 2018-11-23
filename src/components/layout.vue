@@ -10,7 +10,7 @@
 	</div>
 </template>
 <script>
-	import navBar from '@/components/navBar';
+	import navBar from '@/components/nav-bar';
 	import breadcrumb from '@/components/breadcrumb';
 	export default{
 		components:{
