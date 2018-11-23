@@ -10,8 +10,11 @@ import { Message,MessageBox} from 'element-ui';
 import toastComponent from '@/components/toast'
 //axios
 const service = axios.create({
-    baseURL: 'https://easy-mock.com/mock/5bd6c161fffb9b57ff8cf3f8/admin', // api 的 base_url
-    timeout: 5000 // 请求超时时间   
+    baseURL: 'http://rap2api.taobao.org/app/mock/116731/', // api 的 base_url
+    timeout: 5000, // 请求超时时间 
+    headers:{
+        "Content-type":"application/x-www-form-urlencoded"
+    }
 });
 // request拦截器
 service.interceptors.request.use(
