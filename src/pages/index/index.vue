@@ -1,7 +1,7 @@
 <template>
 	<div class="lt-content page-index">
 		<h2>欢迎进入后台管理系统</h2>
-		<p>用户名：{{name}}</p>
+		<p>用户名：{{data.name}}</p>
 	</div>
 </template>
 <script>
@@ -9,7 +9,7 @@
 	export default{
 		name:'index',
 	  	computed:{
-			...mapState(['name'])
+			...mapState(['data'])
 		}
 	}
 </script>

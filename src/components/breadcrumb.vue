@@ -8,7 +8,7 @@
 		</el-breadcrumb>
 		<el-dropdown class="lt-dropdown" @command="handleCommand">
 			<span class="el-dropdown-link">
-			{{name}}<i class="el-icon-arrow-down el-icon--right"></i>
+			{{data.name}}<i class="el-icon-arrow-down el-icon--right"></i>
 			</span>
 			<el-dropdown-menu slot="dropdown">
 				<el-dropdown-item command="logout">退出</el-dropdown-item>
@@ -25,7 +25,7 @@
 			}
 		},
 		computed:{
-			...mapState(['name'])
+			...mapState(['data'])
 		},
 		watch: {
 			$route(){

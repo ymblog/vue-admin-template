@@ -5,9 +5,7 @@ import actions from './actions';
 import getters from './getters';
 Vue.use(Vuex);
 const state = {
-	token:'',//token值
-	name:'',//用户名称
-	navList:''//导航权限
+	data:''//用户信息 包括token、name和导航权限列表
 };
 export default new Vuex.Store({
 	state,

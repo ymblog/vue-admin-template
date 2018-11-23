@@ -29,7 +29,7 @@
 	import {mapState} from 'vuex';
 	export default {
 		computed:{
-			...mapState(['navList'])
+			...mapState(['data'])
 		},
 		data(){
 			return{
@@ -38,7 +38,7 @@
 		},
 		created(){
 			//侧边导航权限后端提供
-			this.list = this.navList;
+			this.list = this.data.list;
 			this.active = this.$route.meta.nav;
 		}
 	}
