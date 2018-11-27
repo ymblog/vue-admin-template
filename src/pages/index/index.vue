@@ -12,7 +12,7 @@
 			...mapState(['data'])
 		}
 	}
-</script>
+</script> 
 <style lang="less" scoped>
 .lt-content.page-index{
 	height:86vh;
