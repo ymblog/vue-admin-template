@@ -23,8 +23,14 @@ service.interceptors.request.use(
         return config;
     },
     error => {
-        console.log(error);
-        Promise.reject(error);
+        Message({
+            message: '登录已失效,请重新登录',
+            type: 'error',
+            duration:2000
+        });
+        store.dispatch('logout').then(() => {
+            location.reload() // 为了重新实例化vue-router对象 避免bug
+        });
     }
 );
 // response 拦截器
@@ -57,18 +63,16 @@ service.interceptors.response.use(
                     duration:2000
                 });
             }
-            return Promise.reject('error');
         } else {
             return res;
         }
     },
     error => {
         Message({
-            message: error.message,
+            message:'系统繁忙,请重试',
             type: 'error',
             duration:2000
         });
-        return Promise.reject(error);
     }
 )
 export default {

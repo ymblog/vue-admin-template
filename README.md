@@ -20,12 +20,12 @@
 
 + 基础架构开发
 + 子账号管理
-+ 简单验证登录和退出登录
++ 验证登录和退出登录
 + 弹窗封装
 + 权限设置
 
-## 传送门
-[项目预览](http://lktop.coding.me/project/vue-admin/dist)
+## 预览
+[项目地址](http://lktop.coding.me/project/vue-admin/dist)
 
 ## 感谢
 喜欢的同学可以顺手给个star支持一下，谢谢！！
