@@ -36,9 +36,9 @@
 			layout="prev, pager, next"
 			:total="list.total" class="lt-pagination">
 		</el-pagination>
-		<router-view>
-			
-		</router-view>
+		<keep-alive>
+			<router-view></router-view>
+		</keep-alive>
 	</div>
 </template>
 <script>

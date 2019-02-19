@@ -34,27 +34,32 @@
 				form:{
 					status:1
 				},
-				rule:{ required: true, trigger: 'blur',message:'请输入'}
+				article:{},
+				rules:{ required: true, trigger: 'blur',message:'请输入'}
 			}
 		},
-		created(){
+		activated: function() {
 			let id = this.$route.params.id;
-			this.rules = {
-				role:this.rule,
-				password:this.rule,
-				account:this.rule
-			}
+			//缓存数据
 			if(id > 0){
-				this.$ajax({
-					url:'/accountList'
-				}).then((data) => {
-					for(var value of data.data){
-						if(value['id'] == this.$route.params.id){
-							this.form = value;
+				if (this.article.hasOwnProperty(id)) {
+					this.form = this.article[id];
+				}else{
+					this.$ajax({
+						url:'/accountList'
+					}).then((data) => {
+						for(var value of data.data){
+							if(value['id'] == this.$route.params.id){
+								this.article[id] = value;
+								this.form = value;
+							}
 						}
-					}
-				});
+					});
+				}
 			}
+		},
+		deactivated: function() {
+			this.data = "";
 		},
 		components:{
 			btns

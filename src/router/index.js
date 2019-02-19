@@ -72,6 +72,7 @@ const router = new Router({
                         {
                             path: 'edit/:id',
                             name: 'accountEdit',
+                            keepAlive:true,
                             component: accountEdit,
                             meta:{
                                 title:'编辑子账号',

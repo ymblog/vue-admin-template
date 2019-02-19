@@ -4,7 +4,7 @@
 		<div ref="editor" class="editor-box"></div>
 		<el-button type="primary" @click="getContent" style="margin-top:20px;">查看内容</el-button>
 		<p>图表使用vue-echarts<a :href="echartLink" class="link" target="_blank">（前往该插件仓库）</a></p>
-		<p>更多插件……<a :href="echartLink" class="link" target="_blank">（前往该插件仓库）</a></p>
+		<p>更多插件……<a :href="moreLink" class="link" target="_blank">（前往该插件仓库）</a></p>
 	</div>
 </template>
 <script>
@@ -15,7 +15,7 @@
 			return{
 				editorLink:'http://www.wangeditor.com/',
 				echartLink:'https://github.com/ecomfe/vue-echarts',
-				moreLinkL:'https://github.com/vuejs/awesome-vue',
+				moreLink:'https://github.com/vuejs/awesome-vue',
 				editorContent:''
 			}
 		},
