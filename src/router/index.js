@@ -138,15 +138,12 @@ const router = new Router({
 //登录验证 包括存储用户信息 不使用请删除掉
 router.beforeEach((to, from, next) => {
     if (whiteList.indexOf(to.path) == -1) {
-        //设置单独的cookie名称
-        if (common.cookie.get(common.cookie.dataName)) {
-            if(store.state.data){
-                next();
-            }else{
-                store.commit('SET_DATA',JSON.parse(common.cookie.get(common.cookie.dataName)));
-                next();
-            }    
-        } else {
+        if(store.state.data){
+            next();
+        }else if(common.cookie.get(common.cookie.dataName)){
+            store.commit('SET_DATA',JSON.parse(common.cookie.get(common.cookie.dataName)));
+            next();
+        }else{
             next({
                 path: '/login',
                 query: { redirect: to.fullPath }

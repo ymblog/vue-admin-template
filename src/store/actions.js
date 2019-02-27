@@ -73,9 +73,7 @@ const actions = {
                     JSON.stringify(info));
                 commit('SET_DATA',info);
                 resolve();
-            }).catch(error => {
-                reject(error);
-            });
+            })
         });
     },
 

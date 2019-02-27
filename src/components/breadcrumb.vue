@@ -40,10 +40,15 @@
             handleCommand(command){
             	//登出
             	if(command === 'logout'){
-	            	this.$store.dispatch('logOut').then(()=>{
-	            		this.$router.push('/login');
+	            	this.$confirm('确定要退出吗?','提示',{
+	            		confirmButtonText: '确定',
+	          			cancelButtonText: '取消',
+	            	}).then(()=>{
+						this.$store.dispatch('logOut').then(()=>{
+		            		this.$router.push('/login');
+		            	});
 	            	});
-            	}
+	            }
             },
             getBreadcrumb(){
             	//动态设置面包屑
