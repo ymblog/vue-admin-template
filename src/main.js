@@ -12,9 +12,8 @@ Vue.config.productionTip = false;
 Vue.use(util);
 Vue.use(ElementUI);
 new Vue({
-	el: '#app',
-	store,//使用vuex 不使用请删除掉
 	router,
-	components: { App },
-	template: '<App/>'
-})
+	store,
+	render: h => h(App)
+}).$mount("#app")
+  

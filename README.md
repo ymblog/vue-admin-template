@@ -1,6 +1,6 @@
 # vue-admin-template
 
-> 一个vue-cli2.9.6构建基础的后台系统,
+> 一个vue-cli3.x构建基础的后台系统
 
 ## 命令说明
 
