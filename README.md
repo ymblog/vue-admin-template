@@ -1,6 +1,6 @@
-# vue-admin-template
+# vue-template
 
-> 一个vue-cli3.x构建基础的后台系统
+> 基于vue-cli构建pc站的初始化架构
 
 ## 命令说明
 
@@ -14,18 +14,13 @@
 + vue-router
 + vuex
 + axios
-+ element-ui
++ vue-lazyload
++ vue-infinite-scroll
 
 ## 完成功能
 
 + 基础架构开发
-+ 子账号管理
 + 验证登录和退出登录
-+ 弹窗封装
-+ 权限设置
-
-## 预览
-[项目地址](http://lktop.coding.me/project/vue-admin/dist)
 
 ## 感谢
 喜欢的同学可以顺手给个star支持一下，谢谢！！
